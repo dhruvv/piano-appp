@@ -1,3 +1,9 @@
+# PC Beeper Piano 
+Piano using the PC beeper. Uses React.js for the front and Flask for the backend.
+
+Implemented for MIT Next House Floor 2 West Wing Main Lounge Computer. 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
