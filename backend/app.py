@@ -1,6 +1,7 @@
 from flask import Flask
 from threading import Thread
 import os
+import subprocess
 
 
 app = Flask(__name__)
@@ -8,10 +9,11 @@ app = Flask(__name__)
 threadFlag = True
 def playFunction(freq):
     global threadFlag
-    os.system("beep -f"+ freq+" -l 100000 &")
+    p = subprocess.Popen(["beep", "-f", freq, "-l", "100000"])
     while not threadFlag:
         pass
         #print("beep -f %f" % (freq))
+    os.kill(p.pid, 15)
 
 thread2 = 0
 tc = 0
@@ -35,7 +37,6 @@ def freq2(freq2):
     global threadFlag
     global thread2
     threadFlag = True
-    thread2.stop()
     return("200")
 
 if __name__ == "__main__":
@@ -43,4 +44,3 @@ if __name__ == "__main__":
 
 
 
-    
