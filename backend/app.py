@@ -6,42 +6,31 @@ import subprocess
 
 app = Flask(__name__)
 
-threadFlag = True
-def playFunction(freq):
-    global threadFlag
-    p = subprocess.Popen(["beep", "-f", freq, "-l", "100000"])
-    while not threadFlag:
-        pass
-        #print("beep -f %f" % (freq))
-    os.kill(p.pid, 15)
+curf = 0
+p = 0
 
-thread2 = 0
 tc = 0
 @app.before_first_request
 def activate_job():
     global tc
     tc = 0
 
-@app.route('/startfreq/<freq>')
-def freq(freq):
-    global threadFlag
-    global thread2
-    threadFlag = False
-    print(freq)
-    thread2 = Thread(target=playFunction, args=(freq,))
-    thread2.start()
+@app.route('/startfreq/<f>')
+def startfreq(f):
+    global curf
+    global p
+    print(f)
+    curf = f
+    p = subprocess.Popen(["beep", "-f", f, "-l", "100000"]).pid
     return("200")
 
-@app.route('/stopfreq/<freq2>')
-def freq2(freq2):
-    global threadFlag
-    global thread2
-    threadFlag = True
+@app.route('/stopfreq/<f>')
+def stopfreq(f):
+    print(f, curf)
+    if f == curf:
+        os.kill(p, 15)
     return("200")
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0')
 
-
-
-    

@@ -5,7 +5,7 @@ import 'react-piano/dist/styles.css';
 
 
 function App() {
-    const firstNote = MidiNumbers.fromNote('c3');
+    const firstNote = MidiNumbers.fromNote('a2');
   const lastNote = MidiNumbers.fromNote('f5');
   const keyboardShortcuts = KeyboardShortcuts.create({
     firstNote: firstNote,
