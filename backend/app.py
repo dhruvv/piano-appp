@@ -9,7 +9,7 @@ threadFlag = True
 def playFunction(freq):
     global threadFlag
     while not threadFlag:
-        os.system("beep -f %f" % (freq))
+        os.system("beep -f"+ freq)
         #print("beep -f %f" % (freq))
 
 tc = 0
