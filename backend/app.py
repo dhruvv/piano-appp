@@ -8,8 +8,9 @@ app = Flask(__name__)
 threadFlag = True
 def playFunction(freq):
     global threadFlag
+    os.system("beep -f"+ freq+" -l 100000 &")
     while not threadFlag:
-        os.system("beep -f"+ freq+" -l 100000")
+        pass
         #print("beep -f %f" % (freq))
 
 thread2 = 0
