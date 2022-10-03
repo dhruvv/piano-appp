@@ -20,8 +20,11 @@ def activate_job():
 
 @app.route('/startfreq/<freq>')
 def freq(freq):
+    global threadFlag
+    threadFlag = False
     print(freq)
     thread2 = Thread(target=playFunction, args=(freq,))
+    thread2.start()
     return("200")
 
 @app.route('/stopfreq/<freq2>')
