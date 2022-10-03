@@ -18,11 +18,11 @@ function App() {
       noteRange={{ first: firstNote, last: lastNote }}
       playNote={(midiNumber) => {
         console.log(midiNumber);
-        const freq = 440 * 2^(midiNumber - 69)/12;
+        const freq = 440 * (2^((midiNumber - 69)/12));
          fetch('http://127.0.0.1:5000/startfreq/' + freq);
       }}
       stopNote={(midiNumber) => {
-        const freq = 440 * 2^(midiNumber - 69)/12;
+        const freq = 440 * (2^((midiNumber - 69)/12));
          fetch('http://127.0.0.1:5000/stopfreq/' + freq);
       }}
       width={1000}
