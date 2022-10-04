@@ -1,0 +1,6 @@
+[Service]
+ExecStart=python app.py
+WorkingDirectory=%h/piano-appp/backend
+
+[Install]
+WantedBy=default.target

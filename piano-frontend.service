@@ -1,0 +1,6 @@
+[Service]
+ExecStart=npm run start
+WorkingDirectory=%h/piano-appp
+
+[Install]
+WantedBy=default.target
