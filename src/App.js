@@ -19,11 +19,11 @@ function App() {
       playNote={(midiNumber) => {
         console.log(midiNumber);
         const freq = 880 * (2**((midiNumber - 69)/12));
-         fetch('http://10.242.6.228:5000/startfreq/' + freq);
+         fetch('http://dubdub.mit.edu:5000/startfreq/' + freq);
       }}
       stopNote={(midiNumber) => {
         const freq = 880 * (2**((midiNumber - 69)/12));
-         fetch('http://10.242.6.228:5000/stopfreq/' + freq);
+         fetch('http://dubdub.mit.edu:5000/stopfreq/' + freq);
       }}
       width={1000}
       keyboardShortcuts={keyboardShortcuts}
